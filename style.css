@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&family=Yeseva+One&display=swap");
+
+:root {
+	--bg-color: hsl(35 50% 96%);
+	--text-color: hsl(200 10% 10%);
+	--text-accent-color: hsl(200 2% 44%);
+	--text-ff: "Cardo", serif;
+	--heading-ff: "Yeseva One", serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: hsl(200 10% 10%);
+		--text-color: hsl(35 50% 96%);
+		--text-accent-color: hsl(35 20% 86%);
+	}
+} */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--text-color);
+	overflow-x: hidden;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 1fr min(50ch, 100% - 4.5rem) 1fr;
+	margin: 0 auto;
+	font-family: var(--text-ff);
+	font-size: clamp(1.2rem, 1rem + 0.5vw, 1.6rem);
+	line-height: 1.6;
+	color: var(--text-color);
+	background: var(--bg-color);
+}
+
+body > * {
+	grid-column: 2;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: unset;
+}
+
+h1 {
+	grid-column: 1 / -1;
+	justify-self: center;
+    margin-bottom: 20px;
+	font-family: var(--heading-ff);
+	font-size: 10vw;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+h2 {
+	margin-top: 3em;
+	font-size: 1.6em;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	position: relative;
+	margin: 0.5em 0 2em;
+	font-size: 0.8em;
+	color: var(--text-accent-color);
+}
+
+h3::after {
+	content: "";
+	display: block;
+	margin-top: 0.5em;
+	margin-left: 0.25em;
+	width: 2px;
+	height: 3em;
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent 0 10%,
+		var(--text-color) 10% 25%
+	);
+}
+
+p {
+	margin: 1rem 0;
+}
+
+p:first-of-type {
+	position: relative;
+	max-width: 16em;
+	font-size: 1.4em;
+	line-height: 1.4;
+	font-style: italic;
+}
+
+p:last-of-type::after {
+	content: "§";
+	display: flex;
+	justify-content: center;
+	margin-top: 1em;
+	margin-bottom: 6em;
+	font-size: 2em;
+	line-height: 1;
+	transform: rotate(90deg);
+}
+
+p:first-of-type::first-letter {
+	float: left;
+	margin-top: -0.58em;
+	margin-right: 0.1em;
+	margin-left: -0.58em;
+	padding: 0.2em 0.3em;
+	font-family: var(--heading-ff);
+	font-size: 2em;
+	font-style: normal;
+	line-height: 1;
+	color: var(--bg-color);
+	background: var(--text-color);
+	border: 0.25em double;
+}
